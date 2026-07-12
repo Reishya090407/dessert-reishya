@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI BITES - Dessert Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">🧁 MINI BITES</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+            <!-- Sekarang tombol keranjang ini bisa diklik -->
+            <div class="cart-icon" onclick="tampilkanKeranjang()">
+                🛒 Keranjang (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <h1>Little Bites, Huge Happiness! ✨</h1>
+                <p>Temukan kebahagiaan di setiap gigitan kecil dessert premium kami.</p>
+                <a href="#menu" class="btn-hero">Lihat Menu</a>
+            </div>
+        </section>
+
+        <section id="menu" class="products">
+            <h2>Our Sweet Menu</h2>
+            <div class="product-grid">
+                <!-- Produk 1 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/kue-cokelat.jpg" alt="Kue Cokelat Lumer"></div>
+        <h3>Kue Cokelat Lumer</h3>
+        <p class="desc">Kue cokelat premium dengan isian cokelat lumer yang melimpah.</p>
+        <p class="price">Rp 35.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Kue Cokelat Lumer', 35000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/puding-mangga.jpg" alt="Puding Mangga"></div>
+        <h3>Puding Mangga</h3>
+        <p class="desc">Puding mangga segar dan lembut disajikan dengan vla susu manis.</p>
+        <p class="price">Rp 20.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Puding Mangga', 20000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/red-velvet.jpg" alt="Red Velvet Cake"></div>
+        <h3>Red Velvet Cake</h3>
+        <p class="desc">Kue red velvet klasik berlapis cream cheese frosting yang gurih.</p>
+        <p class="price">Rp 40.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Red Velvet Cake', 40000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/macaron.jpg" alt="Macaron Rainbow"></div>
+        <h3>Macaron Rainbow</h3>
+        <p class="desc">Kue kering mungil khas Prancis dengan aneka rasa manis bertekstur renyah.</p>
+        <p class="price">Rp 25.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Macaron Rainbow', 25000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 5 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/cupcake.jpg" alt="Cupcake Vanilla"></div>
+        <h3>Cupcake Vanilla</h3>
+        <p class="desc">Cupcake rasa vanilla lembut dengan hiasan buttercream cantik di atasnya.</p>
+        <p class="price">Rp 15.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Cupcake Vanilla', 15000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 6 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/strawberry-cake.jpg" alt="Strawberry Shortcake"></div>
+        <h3>Strawberry Shortcake</h3>
+        <p class="desc">Kue spons ringan dipadu krim segar dan potongan buah stroberi asli.</p>
+        <p class="price">Rp 45.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Strawberry Shortcake', 45000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 7 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/tiramisu.jpg" alt="Tiramisu Box"></div>
+        <h3>Tiramisu Box</h3>
+        <p class="desc">Perpaduan kopi espresso dan keju mascarpone lembut ukuran personal.</p>
+        <p class="price">Rp 38.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Tiramisu Box', 38000)">Tambah ke Keranjang</button>
+    </div>
+
+    <!-- Produk 8 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/cheesecake.jpg" alt="Cheesecake Melt"></div>
+        <h3>Cheesecake Melt</h3>
+        <p class="desc">Kue keju panggang lembut yang lumer di mulut dengan selai buah segar.</p>
+        <p class="price">Rp 42.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Cheesecake Melt', 42000)">Tambah ke Keranjang</button>
+    </div>
+    <!-- Produk 9 -->
+    <div class="product-card">
+        <div class="product-img"><img src="images/choco-soft-cookies.jpg" alt="Choco Soft Cookies"></div>
+        <h3>Choco Soft Cookies</h3>
+        <p class="desc">Kue kering lembut dengan rasa cokelat yang lezat.</p>
+        <p class="price">Rp 18.000</p>
+        <button class="btn-add" onclick="tambahKeranjang('Choco Soft Cookies', 18000)">Tambah ke Keranjang</button>
+    </div>
+</section>
+
+        <!-- KOTAK POP-UP (MODAL) KERANJANG BELANJA -->
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="tutupKeranjang()">&times;</span>
+                <h3>Daftar Pesanan Kamu 🛒</h3>
+                <div id="cart-items-list">
+                    <!-- Daftar belanjaan akan muncul di sini otomatis lewat JS -->
+                    <p style="color: #999; text-align: center; margin: 20px 0;">Keranjang masih kosong nih...</p>
+                </div>
+                <div class="cart-total">
+                    <strong>Total: <span id="cart-total-price">Rp 0</span></strong>
+                </div>
+                <button class="btn-checkout" onclick="checkoutWhatsApp()">Pesan via WhatsApp</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="kontak">
+        <p><strong>MINI BITES DESSERT SHOP</strong></p>
+        <p>Hubungi Kami: @minibites.id</p>
+        <p>&copy; 2026 MINI BITES. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
