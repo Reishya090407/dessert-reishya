@@ -7,7 +7,7 @@
     { id: 6, nama: "Strawberry Shortcake", harga: 45000, gambar: "images/strawberry-cake.jpg" },
     { id: 7, nama: "Tiramisu Box", harga: 38000, gambar: "images/tiramisu.jpg" },
     { id: 8, nama: "Cheesecake Melt", harga: 42000, gambar: "images/cheesecake.jpg" }
-];
+]
 
 
 Array penampung daftar dessert yang dibeli
@@ -32,28 +32,30 @@ function tampilkanKeranjang() {
     
     listTempatBarang.innerHTML = ""; // Bersihkan teks kosong awal
     let totalHarga = 0;
-    
-    if (dataKeranjang.length === 0) {
-        listTempatBarang.innerHTML = '<p style="color: #999; text-align: center; margin: 20px 0;">Keranjang masih kosong nih...</p>';
+if (dataKeranjang.length === 0) {
+        listTempatBarang.innerHTML = "<p style='text-align:center; color:#999;'>Keranjang kamu kosong</p>";
+        tempatTotalHarga.innerText = "Rp 0";
+        modal.style.display = "block";
     } else {
-        // Susun item belanjaan satu-satu ke dalam HTML pop-up
-        dataKeranjang.forEach(function(item) {
-            listTempatBarang.innerHTML += `
-                <div class="cart-item">
-                    <span>${item.nama}</span>
-                    <strong>Rp ${item.harga.toLocaleString('id-ID')}</strong>
-                </div>
-            `;
-            totalHarga += item.harga;
-        });
-    }
-    
-    // Tampilkan total harga akhir
-    tempatTotalHarga.innerText = "Rp " + totalHarga.toLocaleString('id-ID');
-    
-    // Ubah style display CSS modal jadi block supaya muncul di layar
+
+    // Susun item belanjaan satu-satu ke dalam HTML pop-up
+    dataKeranjang.forEach(function(item) {
+        listTempatBarang.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nama}</span>
+                <strong>Rp ${item.harga.toLocaleString('id-ID')}</strong>
+            </div>
+        `;
+        totalHarga += item.harga;
+    }); // Penutup forEach
+
+    // Menampilkan total harga dan modal setelah selesai looping semua item
+    tempatTotalHarga.innerText = "Total: Rp " + totalHarga.toLocaleString('id-ID');
     modal.style.display = "block";
 }
+    
+    // Tampilkan total harga akhir
+   
 
 // Fungsi menutup pop-up keranjang
 function tutupKeranjang() {
@@ -62,23 +64,18 @@ function tutupKeranjang() {
 
 // Fungsi kirim pesanan otomatis langsung terketik ke WhatsApp admin
 function checkoutWhatsApp() {
-    if (dataKeranjang.length === 0) {
-        alert("Keranjang belanja kamu masih kosong!");
-        return;
-    }
-    
     let teksPesan = "Halo MINI BITES, saya mau pesan dessert ini:\n\n";
     let total = 0;
-    
+
     dataKeranjang.forEach(function(item, index) {
         teksPesan += `${index + 1}. ${item.nama} - Rp ${item.harga.toLocaleString('id-ID')}\n`;
         total += item.harga;
     });
-    
+
     teksPesan += `\n*Total Tagihan:* Rp ${total.toLocaleString('id-ID')}\n\nMohon diproses ya!`;
-    
+
     // Format link WhatsApp universal
-    let urlWhatsApp = "https://api.whatsapp.com/send?phone=6281310843010text=" + encodeURIComponent(teksPesan);
+    let urlWhatsApp = "https://api.whatsapp.com/send?phone=6281310843010&text=" + encodeURIComponent(teksPesan);
     
     // Buka tab WhatsApp baru
     window.open(urlWhatsApp, '_blank');
